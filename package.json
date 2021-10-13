@@ -1,0 +1,40 @@
+{
+  "name": "@types/kurento-client",
+  "version": "6.16.0",
+  "description": "TypeScript definitions for kurento-client",
+  "homepage": "https://github.com/cheneysan/DefinitelyTyped/tree/master/types/kurento-client",
+  "license": "MIT",
+  "contributors": [
+      {
+          "name": "James Hill",
+          "url": "https://github.com/jhukdev",
+          "githubUsername": "jhukdev"
+      },
+      {
+          "name": "Michel Albers",
+          "url": "https://github.com/michelalbers",
+          "githubUsername": "michelalbers"
+      },
+      {
+          "name": "Joe Flateau",
+          "url": "https://github.com/joeflateau",
+          "githubUsername": "joeflateau"
+      },
+      {
+          "name": "Yuichiro Tsuchiya",
+          "url": "https://github.com/whitphx",
+          "githubUsername": "whitphx"
+      }
+  ],
+  "main": "",
+  "types": "index.d.ts",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/cheneysan/DefinitelyTyped.git",
+      "directory": "types/kurento-client"
+  },
+  "scripts": {},
+  "dependencies": {
+      "@types/node": "*"
+  }
+}
