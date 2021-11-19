@@ -740,6 +740,15 @@ declare namespace kurento {
         localCandidate: string;
         remoteCandidate: string;
     }
+
+    interface HubPort extends MediaElement {
+
+    }
+
+    interface Hub extends MediaObject {
+        createHubPort: (callback?: Callback<any>) => HubPort
+    }
+
 }
 
 declare const kurento: kurento.Constructor;

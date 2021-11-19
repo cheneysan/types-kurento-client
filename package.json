@@ -1,6 +1,6 @@
 {
   "name": "@types/kurento-client",
-  "version": "6.16.0",
+  "version": "6.16.1",
   "description": "TypeScript definitions for kurento-client",
   "homepage": "https://github.com/cheneysan/DefinitelyTyped/tree/master/types/kurento-client",
   "license": "MIT",
