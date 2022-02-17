@@ -9,6 +9,8 @@
 
 /// <reference types="node" />
 
+import { Stats } from 'fs'
+
 declare namespace kurento {
     interface Constructor {
         (ws_uri: string, options?: Options): Promise<ClientInstance>;
@@ -130,6 +132,15 @@ declare namespace kurento {
     }
     type MediaServer = ServerManager; // For backward compatibility
 
+    type StatsType = 'inboundrtp'|'outboundrtp'|'session'|'datachannel'|'track'|'transport'|'candidatepair'|'localcandidate'|'remotecandidate'|'element'|'endpoint'
+
+    interface Stats {
+        id: string,
+        type: StatsType,
+        timestamp: number,
+        timestampMillis: number,
+    }
+
     interface MediaObject {
         id: string;
         name: string;
@@ -199,6 +210,7 @@ declare namespace kurento {
             description: string,
             callback?: Callback<ElementConnectionData[]>,
         ): Promise<ElementConnectionData[]>;
+        getStats: (mediaType: MediaType, callback?: Callback<any>) => Promise<any>;
 
         isMediaFlowingIn(
             mediaType: MediaType,
@@ -271,7 +283,7 @@ declare namespace kurento {
     interface MediaPipeline extends ClientInstance, MediaObject {
         getGstreamerDot: (callback?: Callback<string>) => Promise<string>;
         getLatencyStats: (callback?: Callback<boolean>) => Promise<boolean>;
-        setLatencyStats: (gatherStats: boolean, callback?: Callback<string>) => Promise<string>;
+        setLatencyStats: (active: boolean, callback?: Callback<string>) => Promise<string>;
     }
 
     // interface Endpoint extends MediaElement {}
@@ -613,7 +625,6 @@ declare namespace kurento {
         generateOffer: () => Promise<string>;
         processOffer: (offer: string, callback?: Callback<string>) => Promise<string>;
         processAnswer: (answer: string, callback?: Callback<string>) => Promise<string>;
-        getStats: (mediaType: MediaType, callback?: Callback<string>) => Promise<string>;
 
         on(
             event: 'DataChannelClose',
