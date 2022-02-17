@@ -271,7 +271,7 @@ declare namespace kurento {
     interface MediaPipeline extends ClientInstance, MediaObject {
         getGstreamerDot: (callback?: Callback<string>) => Promise<string>;
         getLatencyStats: (callback?: Callback<boolean>) => Promise<boolean>;
-        setLatencyStats: (callback?: Callback<string>) => Promise<string>;
+        setLatencyStats: (gatherStats: boolean, callback?: Callback<string>) => Promise<string>;
     }
 
     // interface Endpoint extends MediaElement {}
@@ -613,6 +613,7 @@ declare namespace kurento {
         generateOffer: () => Promise<string>;
         processOffer: (offer: string, callback?: Callback<string>) => Promise<string>;
         processAnswer: (answer: string, callback?: Callback<string>) => Promise<string>;
+        getStats: (mediaType: MediaType, callback?: Callback<string>) => Promise<string>;
 
         on(
             event: 'DataChannelClose',
