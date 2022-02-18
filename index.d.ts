@@ -210,7 +210,7 @@ declare namespace kurento {
             description: string,
             callback?: Callback<ElementConnectionData[]>,
         ): Promise<ElementConnectionData[]>;
-        getStats: (mediaType: MediaType, callback?: Callback<any>) => Promise<any>;
+        getStats: (mediaType: MediaType, callback?: Callback<Record<string, any>>) => Promise<Record<string, any>>;
 
         isMediaFlowingIn(
             mediaType: MediaType,
